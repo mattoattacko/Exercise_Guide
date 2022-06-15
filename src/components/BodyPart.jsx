@@ -11,7 +11,7 @@ const BodyPart = ({ item, setBodyPart, bodyPart }) => {
       justifyContent='center'
       className='bodyPart-card'
       sx={{
-        borderTop: bodyPart === item ? '4px solid #ff2625' : '',// styles for the currently selected icon, else we style them slightly differently
+        borderTop: bodyPart === item ? '4px solid #ff2625' : '',
         backgroundColor: '#fff',
         borderBottomLeftRadius: '20px',
         width: '270px',
@@ -19,9 +19,9 @@ const BodyPart = ({ item, setBodyPart, bodyPart }) => {
         cursor: 'pointer',
         gap: '47px'
       }}
-        onClick={() => {
-          setBodyPart(item);
-          window.scrollTo({ top: 1800, left: 100, behavior: 'smooth' });
+      onClick={() => {
+        setBodyPart(item);
+        window.scrollTo({ top: 1800, left: 100, behavior: 'smooth' });
       }}
     >
       <img src={Icon} alt='gym' style={{ width: '40px', height: '40px' }} />

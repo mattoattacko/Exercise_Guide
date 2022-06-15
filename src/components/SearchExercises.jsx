@@ -23,7 +23,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
 
     //call it as soon as the app loads
     fetchExerciseData();
-  }, [])
+  }, []);
   
 
   //if a search exists, then we fetch exercise data
