@@ -38,6 +38,8 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
         || exercise.bodyPart.toLowerCase().includes(search)
       );
 
+      window.scrollTo({ top: 1800, left: 100, behavior: 'smooth' });
+
       setSearch(''); //clears search
 
       setExercises(searchedExercises); //adds searched exercises to state
@@ -53,9 +55,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
     >
       <Typography
         fontWeight={700}
-        sx={{
-          fontSize: { lg: '44px', xs: '30px' }
-        }}
+        sx={{ fontSize: { lg: '44px', xs: '30px' }}}
         mb='50px'
         textAlign='center'
       >
@@ -68,12 +68,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
         mb='72px'
       >
         <TextField 
-          sx={{
-            input: {
-              fontWeight: '700', 
-              border: 'none', 
-              borderRadius: '4px'
-            },
+          sx={{ input: { fontWeight: '700', border: 'none', borderRadius: '4px'},
             width: { lg: '800px', xs: '350px' },
             backgroundColor: '#fff',
             borderRadius: '40px',
@@ -81,7 +76,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
           height='76px'
           value={search}
           onChange={(e) => setSearch(e.target.value.toLowerCase())} // toLowerCase() to make it case insensitive. So searching 'Squat' will be the same as 'squat'.
-          placeholder='Search Butts'
+          placeholder='Search'
           type='text'
         />
         <Button 
@@ -102,7 +97,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
         </Button>
       </Box>
       <Box sx={{ position: 'relative', width: '100%', p: '20px'  }}>
-        <HorizontalScrollbar data={bodyParts} bodyPart={bodyPart} setBodyParts={setBodyPart} />
+        <HorizontalScrollbar data={bodyParts} bodyParts bodyPart={bodyPart} setBodyPart={setBodyPart} />
       </Box>
     </Stack>
   )

@@ -120,6 +120,8 @@ body {
   .left-arrow,
   .right-arrow {
     position: static !important;
+    align-items: center;
+    justify-content: center;
   }
 
   .hero-banner-img {

@@ -12,7 +12,8 @@ import Footer from './components/Footer'
 
 const App = () => {
   return (
-    <Box width='400px'>
+    <Box width='400px' sx={{ width: { xl: '1488px' } }} m='auto' > 
+      {/* without the sx and m values, our hero-image will stack on top of the Navbar */}
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
