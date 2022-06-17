@@ -10,14 +10,26 @@ import SimilarExercises from '../components/SimilarExercises'
 const ExerciseDetail = () => {
 
   const [exerciseDetail, setExerciseDetail] = useState({})
-  const [exerciseVideos, setExerciseVideos] = useState([])
-  const [similarExercises, setSimilarExercises] = useState([])
 
   const { id } = useParams() //id of exercise. Gives us access to the # we are on in the URL
 
+  useEffect(() => {
+    const fetchExercisesData = async () => {
+      //lots of API calls here, so first we set up the URLs of the APIs we are going to call
+      const exerciseDbUrl = 'https://exercisedb.p.rapidapi.com';
+      const youtubeSearchUrl = 'https://youtube-search-and-download.p.rapidapi.com'
+
+      //API calls. We fetch the data then set it to the state. 
+      const exerciseDetailData = await fetchData(`${exerciseDbUrl}/exercises/exercise/${id}`, exerciseOptions);
+      setExerciseDetail(exerciseDetailData);
+    }
+
+    fetchExercisesData();
+  }, [id]) //dependency array has 'id' because we want to recall this anytime the 'id' changes.
+
   return (
     <Box>
-      <Detail />
+      <Detail exerciseDetail={exerciseDetail} />
       <ExerciseVideos />
       <SimilarExercises />
     </Box>
