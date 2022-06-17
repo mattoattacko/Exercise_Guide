@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { Box } from '@mui/material'
 
-import { exerciseOptions, fetchData } from '../utils/fetchData'
+import { exerciseOptions, youtubeOptions, fetchData } from '../utils/fetchData'
 import Detail from '../components/Detail'
 import ExerciseVideos from '../components/ExerciseVideos'
 import SimilarExercises from '../components/SimilarExercises'
@@ -10,6 +10,7 @@ import SimilarExercises from '../components/SimilarExercises'
 const ExerciseDetail = () => {
 
   const [exerciseDetail, setExerciseDetail] = useState({})
+  const [exerciseVideos, setExerciseVideos] = useState([])
 
   const { id } = useParams() //id of exercise. Gives us access to the # we are on in the URL
 
@@ -22,15 +23,20 @@ const ExerciseDetail = () => {
       //API calls. We fetch the data then set it to the state. 
       const exerciseDetailData = await fetchData(`${exerciseDbUrl}/exercises/exercise/${id}`, exerciseOptions);
       setExerciseDetail(exerciseDetailData);
+
+      const exerciseVideosData = await fetchData(`${youtubeSearchUrl}/search?q=${exerciseDetailData.name}`, youtubeOptions);
+      setExerciseVideos(exerciseVideosData);
     }
 
     fetchExercisesData();
   }, [id]) //dependency array has 'id' because we want to recall this anytime the 'id' changes.
 
+
   return (
     <Box>
-      <Detail exerciseDetail={exerciseDetail} />
-      <ExerciseVideos />
+      {/* these are how we send the data over to the components */}
+      <Detail exerciseDetail={exerciseDetail} /> 
+      <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail.name} /> 
       <SimilarExercises />
     </Box>
   )
