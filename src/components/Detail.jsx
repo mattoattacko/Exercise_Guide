@@ -29,11 +29,11 @@ const Detail = ({ exerciseDetail }) => {
     <Stack gap='60px' sx={{ flexDirection: { lg: 'row', p: '20px', alignItems: 'center' } }} >
       <img src={gifUrl} alt={name} loading='lazy' className='detail-image' />
       <Stack sx={{ gap: { lg: '35px', xs: '20px' }}} >
-        <Typography variant='h3'>
+        <Typography variant='h3' style={{ textTransform: 'capitalize' }}>
           {name}
         </Typography>
-        <Typography variant='h6'>
-          {name} {` `} will target your {target}. 
+        <Typography variant='h6' >
+        <span style={{ textTransform: 'capitalize' }}>{name}</span> {` `} will target your <span style={{ textTransform: 'capitalize' }}>{target}</span>. 
         </Typography>
         {extraDetail.map((item) => (
           <Stack key={item.name} direction='row' gap='24px' alignItems='center'>
