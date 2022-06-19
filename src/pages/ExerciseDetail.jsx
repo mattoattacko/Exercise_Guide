@@ -11,6 +11,8 @@ const ExerciseDetail = () => {
 
   const [exerciseDetail, setExerciseDetail] = useState({})
   const [exerciseVideos, setExerciseVideos] = useState([])
+  const [targetMuscleExercises, setTargetMuscleExercises] = useState([])
+  const [equipmentExercises, setEquipmentExercises] = useState([])
 
   const { id } = useParams() //id of exercise. Gives us access to the # we are on in the URL
 
@@ -28,8 +30,10 @@ const ExerciseDetail = () => {
       setExerciseVideos(exerciseVideosData.contents); //we need 'contents' to make sure to get the actual video data. W/o 'contents', we will get an error because the video will be buried in an array and not available w/o specifying. 
 
       const targetMuscleExercisesData = await fetchData(`${exerciseDbUrl}/exercises/target/${exerciseDetailData.target}`, exerciseOptions);
+      setTargetMuscleExercises(targetMuscleExercisesData);
 
       const equipmentExercisesData = await fetchData(`${exerciseDbUrl}/exercises/equipment/${exerciseDetailData.equipment}`, exerciseOptions);
+      setEquipmentExercises(equipmentExercisesData);
     }
 
     fetchExercisesData();
@@ -41,7 +45,7 @@ const ExerciseDetail = () => {
       {/* these are how we send the data over to the components */}
       <Detail exerciseDetail={exerciseDetail} /> 
       <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail.name} /> 
-      <SimilarExercises />
+      <SimilarExercises targetMuscleExercises={targetMuscleExercises} equipmentExercises={equipmentExercises} />
     </Box>
   )
 }

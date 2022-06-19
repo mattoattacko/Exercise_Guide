@@ -97,10 +97,12 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
         </Button>
       </Box>
       <Box sx={{ position: 'relative', width: '100%', p: '20px'  }}>
-        <HorizontalScrollbar data={bodyParts} bodyParts bodyPart={bodyPart} setBodyPart={setBodyPart} />
+        <HorizontalScrollbar data={bodyParts} bodyParts bodyPart={bodyPart} setBodyPart={setBodyPart} isBodyParts /> 
       </Box>
     </Stack>
   )
 }
 
 export default SearchExercises
+
+//isBodyParts is the gym icon selectable list. The first scrollbar on the page
