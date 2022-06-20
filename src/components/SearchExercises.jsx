@@ -59,8 +59,8 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
         mb='50px'
         textAlign='center'
       >
-        Awesome Butts You <br />
-        Should Know
+        Great Exercises <br />
+        For Any Muscle Group
       </Typography>
 
       <Box 

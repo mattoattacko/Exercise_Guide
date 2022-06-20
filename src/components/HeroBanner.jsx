@@ -17,7 +17,7 @@ const HeroBanner = () => {
         color='#FF2625'
         fontWeight='600'
         fontSize='26px'>
-        Butt Stuff
+        Let's Get Physical
       </Typography>
       <Typography
         fontWeight={700}
@@ -30,7 +30,7 @@ const HeroBanner = () => {
         Sweat, Smile<br />& Repeat
       </Typography>
       <Typography fontSize='22px' lineHeight='35px' mb={4}>
-        Let's do some butt stuff
+        30 minutes of exercise each day helps keep you happy & healthy!
       </Typography>
       <Button
         variant='contained'
