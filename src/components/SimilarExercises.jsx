@@ -4,9 +4,12 @@ import { Typography, Stack, Box } from '@mui/material'
 import HorizontalScrollbar from './HorizontalScrollbar'
 import Loader from './Loader'
 
+import { GiWaveSurfer } from 'react-icons/gi'
+
 const SimilarExercises = ({ targetMuscleExercises, equipmentExercises }) => {
   return (
-    <Box sx={{ mt: { lg: '120px', xs: '0'} }} >
+    <Box sx={{ mt: { lg: '120px', xs: '0'} }} >   
+      <GiWaveSurfer />
       <Typography variant='h3' mb={5}>
         Exercises that target the same muscle groups
       </Typography>

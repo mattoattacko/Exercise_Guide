@@ -33,7 +33,7 @@ const Detail = ({ exerciseDetail }) => {
           {name}
         </Typography>
         <Typography variant='h6' >
-        <span style={{ textTransform: 'capitalize' }}>{name}</span> {` `} will target your <span style={{ textTransform: 'capitalize' }}>{target}</span>. 
+          <span style={{ textTransform: 'capitalize' }}>{name}</span> {` `} will target your <span style={{ textTransform: 'capitalize' }}>{target}</span>. 
         </Typography>
         {extraDetail.map((item) => (
           <Stack key={item.name} direction='row' gap='24px' alignItems='center'>
